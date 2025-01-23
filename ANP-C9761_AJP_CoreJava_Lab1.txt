@@ -1,0 +1,90 @@
+// ANP-C9761_AJP_CoreJava_Lab1
+// 1. Class & Object  and also constructor  concept
+package corejava;
+
+public class Employee {
+	 int id;
+     String name;
+     void insertData(int a, String s)  // normal method to initialize variables
+     {
+    	 id=a;
+    	 name=s;
+     }
+     Employee()  // no argument constructor  or default constructor
+     {
+    	 this.id= 10000;
+    	 this.name="not given";
+     }
+     
+     Employee(int id, String name)  // Parameterised constructor
+     {
+    	 this.id = id;
+    	 this.name=name;
+     }
+
+	public static void main(String[] args) {
+
+       Employee e1 = new Employee();
+       System.out.println("Employee id:"+e1.id +"\t"+"Employee name:"+ e1.name);
+      
+       Employee e2 = new Employee(101, "Tom");
+       System.out.println("Employee id:"+e2.id +"\t"+"Employee name:"+ e2.name);
+       e2.insertData(102, "Jerry");
+       System.out.println("Employee id:"+e2.id +"\t"+"Employee name:"+ e2.name);
+	}
+
+}
+
+output:
+Employee id:10000	Employee name:not given
+Employee id:101	Employee name:Tom
+Employee id:102	Employee name:Jerry
+2. // sorting
+package corejava;
+
+import java.util.Arrays;
+
+public class SortingDemo {
+
+	public static void main(String[] args) {
+		
+         int num[]=new int[] {56,12,78,99,10};
+         String name[] = {"Tom", "Jerry", "Raju","Ben10","Mottu"};
+        // Arrays --> built in class -- sort()
+         Arrays.sort(num);
+         Arrays.sort(name);
+         // toString() ---> convert array into string
+         System.out.println(Arrays.toString(num));
+         System.out.println(Arrays.toString(name));
+         int matrix[][]= {{1,2,3},{10,20,30}};
+         System.out.println(Arrays.deepToString(matrix));
+         
+         // Bubble sort logic
+         int a[]={5, 3, 4, 1, 2};
+         System.out.println("Before bublle sort: "+ Arrays.toString(a));
+       //sop(a.length) --> 5
+       for(int i=0; i<a.length-1; i++)  // no. of passes
+       {
+         for(int j=0; j<a.length-1-i; j++)  // no. of comparisons in each pass
+         { 
+            if(a[j]>a[j+1])
+             {
+              int temp = a[j];
+               a[j] = a[j+1];
+               a[j+1] = temp;
+              }
+         }
+       }
+         
+      System.out.println("After Bubble sort: "+Arrays.toString(a));
+
+	}
+
+}
+//output:
+[10, 12, 56, 78, 99]
+[Ben10, Jerry, Mottu, Raju, Tom]
+[[1, 2, 3], [10, 20, 30]]
+Before bublle sort: [5, 3, 4, 1, 2]
+After Bubble sort: [1, 2, 3, 4, 5]
+
